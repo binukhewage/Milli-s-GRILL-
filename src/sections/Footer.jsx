@@ -1,6 +1,9 @@
 import React from 'react';
 import { Phone, MapPin, Clock, ChevronRight } from 'lucide-react';
 
+// Import your logo
+import logo from "../assets/millslogo.png";
+
 const Footer = () => {
   const scrollTo = (id) => {
     const element = document.querySelector(id);
@@ -14,11 +17,26 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           
-          {/* Brand & Description */}
+          {/* Brand Logo & Name Section */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-heading font-bold text-white uppercase">
-              Milli's <span className="text-primary">Grill</span>
-            </h3>
+            <div 
+              className="flex items-center gap-4 cursor-pointer group"
+              onClick={() => scrollTo('#hem')}
+            >
+              <img 
+                src={logo} 
+                alt="Milli's Grill Logo" 
+                className="h-14 w-auto object-contain group-hover:opacity-80 transition-opacity"
+              />
+              <div className="flex flex-col">
+                <h3 className="text-xl font-black text-white leading-none tracking-tighter uppercase">
+                  Milli's <span className="text-primary">Grill</span>
+                </h3>
+                <span className="text-lg font-bold uppercase">
+                  & Pizza
+                </span>
+              </div>
+            </div>
             <p className="text-gray-400 leading-relaxed max-w-sm">
               Din plats för utsökta grillrätter och en trivsam, inbjudande atmosfär. Vi sätter alltid smak och kvalitet i fokus.
             </p>
@@ -61,7 +79,7 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-start gap-3 group">
                 <Phone className="w-5 h-5 text-primary mt-1 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-300 hover:text-white transition-colors">018-15 55 50</span>
+                <span className="text-gray-300 hover:text-white transition-colors font-medium">018-15 55 50</span>
               </div>
               
               <div className="flex items-start gap-3 group">
@@ -73,13 +91,16 @@ const Footer = () => {
               </div>
 
               <div className="flex items-start gap-3 pt-4 border-t border-white/10">
-                <Clock className="w-5 h-5 text-primary mt-1" />
-                <div className="text-gray-300 space-y-1">
-                  <div className="flex justify-between w-48">
+                <div className="w-full text-gray-300 space-y-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Clock className="w-5 h-5 text-primary" />
+                    <span className="text-white font-bold text-sm uppercase tracking-widest">Öppettider</span>
+                  </div>
+                  <div className="flex justify-between max-w-[220px] text-sm pl-8">
                     <span>Mån – Fre:</span>
                     <span className="text-white font-medium">10:00 – 20:00</span>
                   </div>
-                  <div className="flex justify-between w-48">
+                  <div className="flex justify-between max-w-[220px] text-sm pl-8">
                     <span>Lör – Sön:</span>
                     <span className="text-white font-medium">11:00 – 20:00</span>
                   </div>

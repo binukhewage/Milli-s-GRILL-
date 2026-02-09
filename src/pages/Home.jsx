@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Welcome />
+      <Welcome/>
       <MenuCards />
     </>
   );
