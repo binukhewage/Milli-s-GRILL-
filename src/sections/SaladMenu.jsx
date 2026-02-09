@@ -73,12 +73,6 @@ const SaladMenu = () => {
                   {salad.ingredients}
                 </p>
               </div>
-
-              <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-[10px] uppercase font-bold text-primary tracking-widest">
-                  Inklusive bröd & sås
-                </span>
-              </div>
             </div>
           ))}
         </div>
