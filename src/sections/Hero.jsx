@@ -1,7 +1,7 @@
 import React from 'react';
 import { Utensils, Pizza, Clock, ChevronDown } from 'lucide-react';
 import logo from "../assets/millslogo.png";
-import bg from "../assets/heroimage.jpg";
+import bg from "../assets/grilledmain.jpg";
 
 const Hero = () => {
   const scrollTo = (id) => {
@@ -20,7 +20,7 @@ const Hero = () => {
           style={{ animationDuration: '20s' }}
         />
         {/* Dark gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-[#0a0f1a]/90 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-[#0a0f1a]/60 to-black/80" />
         {/* Golden accent glow */}
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
@@ -102,7 +102,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column: Big Logo */}
-          <div className="flex justify-center items-center lg:justify-end relative">
+          <div className="hidden lg:flex justify-center items-center lg:justify-end relative">
             {/* Glow effect behind logo */}
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent blur-[80px] rounded-full animate-pulse-slow" />
             
