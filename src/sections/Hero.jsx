@@ -2,7 +2,7 @@ import React from "react";
 import { Utensils, Pizza, Clock, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/millslogo.png";
-import bg from "../assets/grilledmain.jpg";
+import bg from "../assets/grilbg.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -111,15 +111,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Logo */}
-          <div className="hidden lg:flex justify-center lg:justify-end relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent blur-[80px] rounded-full animate-pulse-slow" />
-            <img
-              src={logo}
-              alt="Millis Grill & Pizza Logo"
-              className="relative z-10 w-full max-w-[500px] lg:max-w-[650px] object-contain drop-shadow-2xl"
-            />
-          </div>
+          
         </div>
       </div>
 

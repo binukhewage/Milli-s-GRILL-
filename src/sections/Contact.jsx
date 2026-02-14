@@ -2,10 +2,14 @@ import React from 'react';
 import { MapPin, Phone, Clock, Send } from 'lucide-react';
 
 const Contact = () => {
+  // Replace this with your actual Google Maps CID or Share URL for better accuracy
+  const mapAddress = "Vaksalagatan 30, 753 31 Uppsala";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapAddress)}`;
+
   return (
     <section id="kontakt" className="relative py-32 bg-[#0a0f1a]">
       {/* Top Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-r from-transparent via-primary/50 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
@@ -22,28 +26,38 @@ const Contact = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="flex items-start gap-5 group">
+              {/* Address - Clickable to open Google Maps */}
+              <a 
+                href={googleMapsUrl}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start gap-5 group cursor-pointer"
+              >
                 <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:border-primary/50 transition-colors duration-300">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-1">Adress</h3>
-                  <p className="text-gray-400 leading-relaxed">Vaksalagatan 30, 753 31 Uppsala</p>
+                  <p className="text-gray-400 leading-relaxed group-hover:text-white transition-colors">Vaksalagatan 30, 753 31 Uppsala</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-5 group">
+              {/* Phone - Clickable to call */}
+              <a 
+                href="tel:018100000" 
+                className="flex items-start gap-5 group cursor-pointer"
+              >
                 <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:border-primary/50 transition-colors duration-300">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-1">Telefon</h3>
-                  <p className="text-gray-400 leading-relaxed">018-10 00 00</p>
+                  <p className="text-gray-400 leading-relaxed group-hover:text-white transition-colors">018-15 55 50</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-5 group">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:border-primary/50 transition-colors duration-300">
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -63,7 +77,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-2">Dela din feedback</h3>
               <p className="text-gray-400 text-sm mb-8">Vi strävar alltid efter att bli bättre. Berätta om ditt besök!</p>
               
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2 ml-1">Namn</label>
                   <input 
@@ -82,29 +96,37 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button className="w-full py-4 bg-primary hover:bg-primary/90 text-[#0a0f1a] font-black uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-3 group shadow-lg shadow-primary/20">
+                <button type="submit" className="w-full py-4 bg-primary hover:bg-primary/90 text-[#0a0f1a] font-black uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-3 group shadow-lg shadow-primary/20">
                   Skicka Meddelande
                   <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
             </div>
-            {/* Subtle background glow */}
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
           </div>
         </div>
 
         {/* Full Width Map Section */}
         <div className="h-[450px] w-full bg-white/5 rounded-[2.5rem] overflow-hidden border border-white/10 relative group shadow-2xl">
-          <div className="absolute inset-0 bg-primary/5 pointer-events-none group-hover:opacity-0 transition-opacity duration-700" />
+          {/* Overlay link to make the whole map area clickable to open Google Maps */}
+          <a 
+            href={googleMapsUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="absolute inset-0 z-20 cursor-pointer"
+            title="Öppna i Google Maps"
+          />
+          <div className="absolute inset-0 bg-primary/5 pointer-events-none group-hover:opacity-0 transition-opacity duration-700 z-10" />
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.3411486047716!2d17.6439063!3d59.8610587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d7807a515f9%3A0xc6074a36f7a77d70!2sVaksalagatan%2030%2C%20753%2031%20Uppsala!5e0!3m2!1ssv!2sse!4v1700000000000!5m2!1ssv!2sse"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001.37877543419!2d17.64332307736691!3d59.86178347468165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d8502f6764d%3A0x6b2e04351325d2b7!2sVaksalagatan%2030%2C%20753%2031%20Uppsala!5e0!3m2!1ssv!2sse!4v1700000000000"
             width="100%"
             height="100%"
-            style={{ border: 0, }}
+            style={{ border: 0, filter: 'grayscale(1) contrast(1.2) opacity(0.8)' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Karta"
+            className="relative z-0"
           ></iframe>
         </div>
       </div>
