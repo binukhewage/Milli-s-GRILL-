@@ -48,7 +48,7 @@ const Hero = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-gray-200 max-w-md font-light leading-relaxed border-l-2 border-primary/60 pl-5 hidden lg:block">
+            <p className="text-base sm:text-lg text-gray-200 max-w-md font-light leading-relaxed border-l-2 border-primary/60 pl-5 lg:block">
               Din plats för utsökta grillrätter och en trivsam atmosfär. 
               Vi sätter alltid smak och kvalitet i fokus.
             </p>
